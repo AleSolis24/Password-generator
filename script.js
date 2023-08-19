@@ -30,6 +30,9 @@ function generatePassword() {
     // once you have all the confirm values. use those values with the password length to generate a password
     
     // depending on what of the 4 arrays they want to use, combine those they want and pick random from the array.
+    upperletter[0] = "A"
+    upperletter[1] = "B"
+    
     // google how to add all array into one. How to pick a random item from a array 
     // I would have a new var array and combine all the ones they want and pick random
     
