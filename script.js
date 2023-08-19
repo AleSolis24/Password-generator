@@ -4,9 +4,50 @@ var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var special =["!", "@", "#", "(", ")"];
 // this is going to be used to pull values from characters above to generate password.
 
-
 // create event listener on button click to update password length
-document.getElementById("generate").addEventListener("click", generatePassword);
+var generateBtn = document.getElementById("generate")
+var games = document.getElementById("password")
+generateBtn.addEventListener("click", generatePassword);
+function passwordsource(passwordlength, wantSpecialCharacters, wantLowerCharacter, wantUpperCharacters, numberCharacter){
+  
+  var possibleSource = [];
+  var passwordArray = [];
+  if (wantSpecialCharacters === true) {
+    possibleSource.push(special)
+  }
+  if (wantLowerCharacter === true) {
+    possibleSource.push(lowerletter)
+  }
+  if (wantUpperCharacters === true) {
+    possibleSource.push(upperletter)
+  }
+  if (numberCharacter === true) {
+    possibleSource.push(number)
+  }
+  
+  
+  for (var index = 0; index < passwordlength; index++) {
+    while(passwordArray.length < passwordlength){
+       if (possibleSource[0]){
+        passwordArray.push(possibleSource[0][Math.floor(Math.random()*possibleSource[0].length)])
+      }
+      if(possibleSource[1]) {
+        passwordArray.push(possibleSource[1][Math.floor(Math.random()*possibleSource[1].length)])
+      }
+      if (possibleSource[2]){
+        passwordArray.push(possibleSource[2][Math.floor(Math.random()*possibleSource[2].length)])
+      }
+      if (possibleSource[3]){
+        passwordArray.push(possibleSource[3][Math.floor(Math.random()*possibleSource[3].length)])
+      }
+    }
+    
+    
+  }
+  var completedPassword = passwordArray.join("") 
+  games.textContent = completedPassword
+  console.log(completedPassword)
+}
 
 function generatePassword() {
   // todo this is where the prompt will show
@@ -27,24 +68,22 @@ function generatePassword() {
     // todo ask if they want numbers
     var numberCharacter = confirm("do you want numbers");
     console.log(numberCharacter);
-    // once you have all the confirm values. use those values with the password length to generate a password
-    
-    // depending on what of the 4 arrays they want to use, combine those they want and pick random from the array.
-    upperletter[0] = "A"
-    upperletter[1] = "B"
-    
-    // google how to add all array into one. How to pick a random item from a array 
-    // I would have a new var array and combine all the ones they want and pick random
-    
 
-  } else { // this is not good we need them to enter a new value
-    console.log("is not good, need to do again")
+    passwordsource(passwordlength, wantSpecialCharacters, wantLowerCharacter, wantUpperCharacters, numberCharacter);
+
+    // once you have all the confirm values, use those values with the password length to generate a password
+    // depending on which of the 4 arrays they want to use, combine those they want and pick randomly from the array
+    // you can use array methods like concat() to combine arrays and Math.random() to pick a random item from an array
+  } else {
+  
+    console.log("is not good, need to do again");
     // todo call a function that shows they need to try again
-    alert("Character needs between 8 to 128 character");
+    alert("Character needs to be between 8 and 128 characters");
+    generatePassword();
   }
-}
-//to generate a random password
-function rngpassword(num) {
-  console.log(passwordlength);
-var passwordlength = Math.floor(Math.random() * num.length);
-}
+  } 
+  
+  //to generate a random password
+ 
+ 
+  
