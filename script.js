@@ -1,3 +1,4 @@
+//setting up new Var for creating a new password 
 var upperletter = ["A", "B", "C", "D", "E", "F","G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
 var lowerletter = ["a", "b", "c", "d", "e", "f","g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
@@ -9,7 +10,7 @@ var generateBtn = document.getElementById("generate")
 var games = document.getElementById("password")
 generateBtn.addEventListener("click", generatePassword);
 function passwordsource(passwordlength, wantSpecialCharacters, wantLowerCharacter, wantUpperCharacters, numberCharacter){
-  
+  //to generate a random password
   var possibleSource = [];
   var passwordArray = [];
   if (wantSpecialCharacters === true) {
@@ -29,6 +30,7 @@ function passwordsource(passwordlength, wantSpecialCharacters, wantLowerCharacte
   for (var index = 0; index < passwordlength; index++) {
     while(passwordArray.length < passwordlength){
        if (possibleSource[0]){
+        // you can use array methods like concat/push to combine arrays and Math.random() to pick a random item from an array
         passwordArray.push(possibleSource[0][Math.floor(Math.random()*possibleSource[0].length)])
       }
       if(possibleSource[1]) {
@@ -73,7 +75,7 @@ function generatePassword() {
 
     // once you have all the confirm values, use those values with the password length to generate a password
     // depending on which of the 4 arrays they want to use, combine those they want and pick randomly from the array
-    // you can use array methods like concat() to combine arrays and Math.random() to pick a random item from an array
+    
   } else {
   
     console.log("is not good, need to do again");
@@ -83,7 +85,7 @@ function generatePassword() {
   }
   } 
   
-  //to generate a random password
+  
  
  
   
