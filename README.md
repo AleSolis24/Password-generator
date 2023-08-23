@@ -8,7 +8,8 @@
 between 8 to 128 charchter long as well as bringin gup prompt and alreat method to ask the user how long and what kind of characther they want to use for 
 their passwords. 
 ## URL Link 
-file:///C:/Users/Admin/Desktop/2023-edx/Password/index.html
+https://alesolis24.github.io/Password-generator/
+
 ## How to Use 
 ​
 The website is very easy to use. 
